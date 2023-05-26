@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Navigation-Customer.master.cs" Inherits="PSDLab.View.Navigation_Customer" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:Button ID="homeBtn" runat="server" Text="Home" OnClick="homeBtn_Click"/>
+        <asp:Button ID="Button2" runat="server" Text="Cart" />
+        <asp:Button ID="Button3" runat="server" Text="Transaction" />
+        <asp:Button ID="Button4" runat="server" Text="Update Profile" />
+        <asp:Button ID="logOutBtn" runat="server" Text="Log Out" OnClick="logOutBtn_Click"/>
+        <div>
+            <asp:ContentPlaceHolder ID="head" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
