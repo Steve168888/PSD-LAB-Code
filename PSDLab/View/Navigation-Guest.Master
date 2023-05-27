@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <asp:Button ID="homeBtn" runat="server" Text="Home" OnClick="homeBtn_Click"/>
-        <asp:Button ID="Button1" runat="server" Text="Login" />
+        <asp:Button ID="loginBtn" runat="server" Text="Login" OnClick="loginBtn_Click"/>
         <asp:Button ID="Button2" runat="server" Text="Register" />
         <div>
             <asp:ContentPlaceHolder ID="head" runat="server">

@@ -14,7 +14,7 @@
         <%foreach (var x in db.Albums) { %>
         <tr>
             <th><img src='<%= x.albumImage%>' alt="Album Image" width="100" height="100"/></th>
-            <th><%= x.albumName%></th>
+            <th><a href='<%= ResolveUrl("~/View/AlbumDetail.aspx?albumName=") + HttpUtility.UrlEncode(x.albumName) %>'><%= x.albumName%></a></th>
             <th><%= x.albumPrice%></th>
             <th><%= x.albumDesc%></th>
         </tr>

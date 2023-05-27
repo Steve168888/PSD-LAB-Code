@@ -1,5 +1,4 @@
 ﻿using PSDLab.Controller;
-using PSDLab.Factory;
 using PSDLab.Model;
 using PSDLab.Repository;
 using System;
@@ -12,16 +11,22 @@ using System.Web.UI.WebControls;
 
 namespace PSDLab.View
 {
-    public partial class InsertArtist : System.Web.UI.Page
+    public partial class EditArtist : System.Web.UI.Page
     {
         DatabaseEntities db = SingletonDatabase.GetInstance();
-        ArtistFactory af = new ArtistFactory();
         ArtistRepository ar = new ArtistRepository();
-        ArtistValidation av = new ArtistValidation();
         HomeRepository hr = new HomeRepository();
+        ArtistValidation av = new ArtistValidation();
+        public int currentId;
+        public string oldName;
         public int visitorRole;
         protected void Page_Load(object sender, EventArgs e)
         {
+            string artistName = Request.QueryString["artistName"];
+            if(artistName == null)
+            {
+                Response.Redirect("~/View/HomePage.aspx");
+            }
             if (!IsPostBack)
             {
                 if (Request.Cookies["UserInfo"] != null)
@@ -41,13 +46,25 @@ namespace PSDLab.View
                 {
                     Response.Redirect("~/View/HomePage.aspx");
                 }
+
+                Artist currentArtist = ar.getArtistByName(artistName);
+                oldName = currentArtist.artistName;
+                currentLabel.Text = currentArtist.artistName;
+                artistImage.ImageUrl = currentArtist.artistImage;
+                currentId = currentArtist.artistId;
             }
+
+            
         }
 
         protected void uploadBtn_Click(object sender, EventArgs e)
         {
-            string name = nameBox.Text.ToString();
-            if (imageUpload.HasFile && av.validateName(name))
+            string name = nameBox.Text;
+            if(name != oldName && !av.validateName(name))
+            {
+                uploadStatus.Text = "Name already exist.";
+            }
+            else if (imageUpload.HasFile)
             {
                 string fileName = DateTime.Now.ToString("yyyyMMddHHmmss") + Path.GetExtension(imageUpload.FileName);
                 string filePath = Server.MapPath("~/Image/Artist/" + fileName);
@@ -56,11 +73,13 @@ namespace PSDLab.View
 
                 string imagePath = "/Image/Artist/" + fileName;
 
-                int nextId = (db.Artists.Max(c => c.artistId)) + 1;
-                Artist newArtist = af.CreateArtist(nextId, name, imagePath);
+                Artist currentArtist = ar.getArtistByID(currentId);
+                currentArtist.artistName = name;
+                currentArtist.artistImage = imagePath;
 
-                ar.registerArtist(newArtist);
+                db.SaveChanges();
 
+                Response.Redirect("~/View/HomePage.aspx");
                 uploadStatus.Text = "Success";
             }
             else

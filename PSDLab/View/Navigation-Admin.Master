@@ -13,7 +13,7 @@
         <asp:Button ID="Button4" runat="server" Text="Update Profile" />
         <asp:Button ID="logOutBtn" runat="server" Text="Log Out" OnClick="logOutBtn_Click"/>
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:ContentPlaceHolder ID="head" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>

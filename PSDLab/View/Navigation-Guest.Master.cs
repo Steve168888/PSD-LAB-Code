@@ -18,5 +18,10 @@ namespace PSDLab.View
         {
             Response.Redirect("~/View/HomePage.aspx");
         }
+
+        protected void loginBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/LoginPage.aspx");
+        }
     }
 }

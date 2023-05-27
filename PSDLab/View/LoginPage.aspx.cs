@@ -12,7 +12,7 @@ namespace PSDLab.View
     public partial class LoginPage : System.Web.UI.Page
     {
         DatabaseEntities db = SingletonDatabase.GetInstance();
-        CustomerRepository cr;
+        CustomerRepository cr = new CustomerRepository();
         protected void Page_Load(object sender, EventArgs e)
         {
 

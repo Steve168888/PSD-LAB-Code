@@ -11,52 +11,52 @@ namespace PSDLab.View
 {
 
 
-    public partial class Navigation_Guest
+    public partial class AlbumDetail
     {
 
         /// <summary>
-        /// form1 control.
+        /// nameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label nameLabel;
 
         /// <summary>
-        /// homeBtn control.
+        /// albumImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button homeBtn;
+        protected global::System.Web.UI.WebControls.Image albumImage;
 
         /// <summary>
-        /// loginBtn control.
+        /// descLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button loginBtn;
+        protected global::System.Web.UI.WebControls.Label descLabel;
 
         /// <summary>
-        /// Button2 control.
+        /// priceLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Label priceLabel;
 
         /// <summary>
-        /// head control.
+        /// stockLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Label stockLabel;
     }
 }

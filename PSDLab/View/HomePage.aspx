@@ -7,11 +7,15 @@
     <table>
         <tr align="left">
             <th>Artist Name</th>
+            <th id="HeaderAdminOnly">Action</th>
         </tr>
 
         <%foreach (var x in db.Artists) { %>
+
         <tr align="left">
             <th><a href='<%= ResolveUrl("~/View/ArtistDetail.aspx?artistName=") + HttpUtility.UrlEncode(x.artistName) %>'><%= x.artistName%></a></th>
+            <th><a href='<%= ResolveUrl("~/View/EditArtist.aspx?artistName=") + HttpUtility.UrlEncode(x.artistName) %>'>Edit</a></th>
+            
         </tr>
         <%    } %>
        

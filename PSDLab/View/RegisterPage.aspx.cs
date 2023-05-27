@@ -14,9 +14,9 @@ namespace PSDLab.View
     public partial class RegisterPage : System.Web.UI.Page
     {
         DatabaseEntities db = SingletonDatabase.GetInstance();
-        CustomerValidation cv;
-        CustomerFactory cf;
-        CustomerRepository cr;
+        CustomerValidation cv = new CustomerValidation();
+        CustomerFactory cf = new CustomerFactory();
+        CustomerRepository cr = new CustomerRepository();
         protected void Page_Load(object sender, EventArgs e)
         {
 

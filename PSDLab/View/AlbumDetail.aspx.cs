@@ -9,14 +9,26 @@ using System.Web.UI.WebControls;
 
 namespace PSDLab.View
 {
-    public partial class HomePage : System.Web.UI.Page
+    public partial class AlbumDetail : System.Web.UI.Page
     {
         public DatabaseEntities db = SingletonDatabase.GetInstance();
+        AlbumRepository ar = new AlbumRepository();
         public int visitorRole;
         HomeRepository hr = new HomeRepository();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                string albumName = Request.QueryString["albumName"];
+                nameLabel.Text = albumName;
+
+                Album currentAlbum = ar.getAlbumByName(albumName);
+                albumImage.ImageUrl = currentAlbum.albumImage;
+                descLabel.Text = currentAlbum.albumDesc;
+                priceLabel.Text = currentAlbum.albumPrice.ToString();
+                stockLabel.Text = currentAlbum.albumStock.ToString();
+
+            }
         }
 
         protected void Page_PreInit(object sender, EventArgs e)
@@ -47,21 +59,5 @@ namespace PSDLab.View
                 this.MasterPageFile = "~/View/Navigation-Customer.Master";
             }
         }
-
-        //protected void artistBtn_Command(object sender, CommandEventArgs e)
-        //{
-        //    if (e.CommandName == "SelectArtist")
-        //    {
-        //        string artistName = e.CommandArgument.ToString();
-
-        //        // Redirect to ArtistDetail.aspx passing the artistName as a query string parameter
-        //        Response.Redirect("~/View/ArtistDetail.aspx?artistName=" + artistName);
-        //    }
-        //}
-
-        //protected void artistBtn_Click(object sender, EventArgs e)
-        //{
-        //    Response.Redirect("~/View/ArtistDetail.aspx?artistName=" + artistName);
-        //}
     }
 }

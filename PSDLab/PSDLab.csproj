@@ -79,6 +79,7 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="Image\Album\638059451370799986.jfif" />
     <Content Include="Image\Artist\638059446432559006.jfif" />
     <Content Include="Image\Artist\638059450808002463.jfif" />
     <Content Include="Model\Model.Context.tt">
@@ -91,16 +92,21 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Content Include="View\AlbumDetail.aspx" />
     <Content Include="View\ArtistDetail.aspx" />
+    <Content Include="View\EditArtist.aspx" />
     <Content Include="View\HomePage.aspx" />
+    <Content Include="View\InsertAlbum.aspx" />
     <Content Include="View\InsertArtist.aspx" />
     <Content Include="View\LoginPage.aspx" />
     <Content Include="View\RegisterPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AlbumValidation.cs" />
     <Compile Include="Controller\ArtistValidation.cs" />
     <Compile Include="Controller\CustomerValidation.cs" />
+    <Compile Include="Factory\AlbumFactory.cs" />
     <Compile Include="Factory\ArtistFactory.cs" />
     <Compile Include="Factory\CustomerFactory.cs" />
     <Compile Include="Model\Album.cs">
@@ -137,10 +143,18 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AlbumRepository.cs" />
     <Compile Include="Repository\ArtistRepository.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\HomeRepository.cs" />
     <Compile Include="Repository\SingletonDatabase.cs" />
+    <Compile Include="View\AlbumDetail.aspx.cs">
+      <DependentUpon>AlbumDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\AlbumDetail.aspx.designer.cs">
+      <DependentUpon>AlbumDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\ArtistDetail.aspx.cs">
       <DependentUpon>ArtistDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -148,12 +162,26 @@
     <Compile Include="View\ArtistDetail.aspx.designer.cs">
       <DependentUpon>ArtistDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\EditArtist.aspx.cs">
+      <DependentUpon>EditArtist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\EditArtist.aspx.designer.cs">
+      <DependentUpon>EditArtist.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\InsertAlbum.aspx.cs">
+      <DependentUpon>InsertAlbum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\InsertAlbum.aspx.designer.cs">
+      <DependentUpon>InsertAlbum.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\InsertArtist.aspx.cs">
       <DependentUpon>InsertArtist.aspx</DependentUpon>
@@ -219,7 +247,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Handler\" />
-    <Folder Include="Image\Album\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
