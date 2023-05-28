@@ -15,6 +15,12 @@ namespace PSDLab.Repository
             return albumFound;
         }
 
+        public Album getAlbumByID(int id)
+        {
+            Album albumFound = (from x in db.Albums where id == x.albumId select x).FirstOrDefault();
+            return albumFound;
+        }
+
         public int getArtistIDbyName(string name)
         {
             Artist artistFound = (from x in db.Artists where name == x.artistName select x).FirstOrDefault();

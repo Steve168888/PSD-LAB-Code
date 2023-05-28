@@ -94,6 +94,7 @@
     </Content>
     <Content Include="View\AlbumDetail.aspx" />
     <Content Include="View\ArtistDetail.aspx" />
+    <Content Include="View\EditAlbum.aspx" />
     <Content Include="View\EditArtist.aspx" />
     <Content Include="View\HomePage.aspx" />
     <Content Include="View\InsertAlbum.aspx" />
@@ -161,6 +162,13 @@
     </Compile>
     <Compile Include="View\ArtistDetail.aspx.designer.cs">
       <DependentUpon>ArtistDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditAlbum.aspx.cs">
+      <DependentUpon>EditAlbum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\EditAlbum.aspx.designer.cs">
+      <DependentUpon>EditAlbum.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\EditArtist.aspx.cs">
       <DependentUpon>EditArtist.aspx</DependentUpon>

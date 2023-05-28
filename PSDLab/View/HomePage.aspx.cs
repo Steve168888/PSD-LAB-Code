@@ -16,7 +16,14 @@ namespace PSDLab.View
         HomeRepository hr = new HomeRepository();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if(visitorRole == 2)
+            {
+                addArtistBtn.Visible = true;
+            }
+            else
+            {
+                addArtistBtn.Visible = false;
+            }
         }
 
         protected void Page_PreInit(object sender, EventArgs e)
@@ -48,20 +55,14 @@ namespace PSDLab.View
             }
         }
 
-        //protected void artistBtn_Command(object sender, CommandEventArgs e)
-        //{
-        //    if (e.CommandName == "SelectArtist")
-        //    {
-        //        string artistName = e.CommandArgument.ToString();
+        protected void addArtistBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/InsertArtist.aspx");
+        }
 
-        //        // Redirect to ArtistDetail.aspx passing the artistName as a query string parameter
-        //        Response.Redirect("~/View/ArtistDetail.aspx?artistName=" + artistName);
-        //    }
-        //}
-
-        //protected void artistBtn_Click(object sender, EventArgs e)
-        //{
-        //    Response.Redirect("~/View/ArtistDetail.aspx?artistName=" + artistName);
-        //}
+        public int getVisitorRole()
+        {
+            return visitorRole;
+        }
     }
 }

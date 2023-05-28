@@ -19,15 +19,19 @@ namespace PSDLab.View
         AlbumRepository ar = new AlbumRepository();
         AlbumFactory af = new AlbumFactory();
         HomeRepository hr = new HomeRepository();
+        public string artistName;
         public int visitorRole;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                string artistName = Request.QueryString["artistName"];
+                artistName = Request.QueryString["artistName"];
                 if (Request.Cookies["UserInfo"] != null)
                 {
                     int customerID = Convert.ToInt32(Request.Cookies["UserInfo"].Value);
+                    //artistName = Request.QueryString["artistName"];
+
+                    artistNameLabel.Text = artistName;
 
                     Customer findCustomer = hr.FindCustomerByID(customerID);
 
@@ -51,7 +55,6 @@ namespace PSDLab.View
             string desc = descBox.Text;
             int price = Convert.ToInt32(priceBox.Text);
             int stock = Convert.ToInt32(stockBox.Text);
-            string artistName = Request.QueryString["artistName"];
             int artistId = ar.getArtistIDbyName(artistName);
 
             if (name.Length <= 0 || name.Length >= 50)

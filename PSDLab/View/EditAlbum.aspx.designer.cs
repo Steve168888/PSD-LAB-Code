@@ -11,26 +11,8 @@ namespace PSDLab.View
 {
 
 
-    public partial class InsertAlbum
+    public partial class EditAlbum
     {
-
-        /// <summary>
-        /// Label3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-
-        /// <summary>
-        /// artistNameLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label artistNameLabel;
 
         /// <summary>
         /// Label1 control.
@@ -51,13 +33,13 @@ namespace PSDLab.View
         protected global::System.Web.UI.WebControls.TextBox nameBox;
 
         /// <summary>
-        /// Label4 control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
         /// descBox control.
@@ -69,13 +51,13 @@ namespace PSDLab.View
         protected global::System.Web.UI.WebControls.TextBox descBox;
 
         /// <summary>
-        /// Label5 control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
         /// priceBox control.
@@ -87,13 +69,13 @@ namespace PSDLab.View
         protected global::System.Web.UI.WebControls.TextBox priceBox;
 
         /// <summary>
-        /// Label6 control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
         /// stockBox control.
@@ -112,6 +94,15 @@ namespace PSDLab.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
+        /// albumImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image albumImage;
 
         /// <summary>
         /// imageUpload control.

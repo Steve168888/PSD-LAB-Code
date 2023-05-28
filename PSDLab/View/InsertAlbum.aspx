@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/Navigation-Admin.Master" AutoEventWireup="true" CodeBehind="InsertAlbum.aspx.cs" Inherits="PSDLab.View.InsertAlbum" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <br /><br />
-    <asp:Label ID="Label3" runat="server" Text="Insert Artist"></asp:Label><br />
+    <asp:Label ID="Label3" runat="server" Text="Insert Album"></asp:Label><br />
+    <asp:Label ID="artistNameLabel" runat="server" Text="Artist Name"></asp:Label><br />
     <br /><br />
     <asp:Label ID="Label1" runat="server" Text="Name"></asp:Label><br />
     <asp:TextBox ID="nameBox" runat="server"></asp:TextBox><br /><br />

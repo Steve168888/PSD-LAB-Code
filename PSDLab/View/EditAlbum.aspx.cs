@@ -11,18 +11,18 @@ using System.Web.UI.WebControls;
 
 namespace PSDLab.View
 {
-    public partial class EditArtist : System.Web.UI.Page
+    public partial class EditAlbum : System.Web.UI.Page
     {
         DatabaseEntities db = SingletonDatabase.GetInstance();
-        ArtistRepository ar = new ArtistRepository();
         HomeRepository hr = new HomeRepository();
-        ArtistValidation av = new ArtistValidation();
         public int currentId, visitorRole;
         public string oldName;
+        AlbumRepository ar = new AlbumRepository();
+        AlbumValidation av = new AlbumValidation();
         protected void Page_Load(object sender, EventArgs e)
         {
-            string artistName = Request.QueryString["artistName"];
-            if(artistName == null)
+            string albumName = Request.QueryString["albumName"];
+            if (albumName == null)
             {
                 Response.Redirect("~/View/HomePage.aspx");
             }
@@ -46,35 +46,48 @@ namespace PSDLab.View
                     Response.Redirect("~/View/HomePage.aspx");
                 }
 
-                Artist currentArtist = ar.getArtistByName(artistName);
-                oldName = currentArtist.artistName;
-                currentLabel.Text = currentArtist.artistName;
-                artistImage.ImageUrl = currentArtist.artistImage;
-                currentId = currentArtist.artistId;
-            }
+                Album currentAlbum = ar.getAlbumByName(albumName);
+                oldName = currentAlbum.albumName;
+                albumImage.ImageUrl = currentAlbum.albumImage;
+                currentId = currentAlbum.albumId;
 
-            
+                nameBox.Text = currentAlbum.albumName;
+                descBox.Text = currentAlbum.albumDesc;
+                priceBox.Text = currentAlbum.albumPrice.ToString();
+                stockBox.Text = currentAlbum.albumStock.ToString();
+            }
         }
 
         protected void uploadBtn_Click(object sender, EventArgs e)
         {
-            string name = nameBox.Text;
-            if(name != oldName && !av.validateName(name))
+            string newName = nameBox.Text;
+            string newDesc = descBox.Text;
+            int newPrice = Convert.ToInt32(priceBox.Text);
+            int newStock = Convert.ToInt32(stockBox.Text);
+
+            if (newName != oldName && !av.validateName(newName))
             {
                 uploadStatus.Text = "Name already exist.";
+            }
+            else if (!av.validateAlbumUpdate(newName, newDesc, newPrice, newStock))
+            {
+                uploadStatus.Text = "Name, Description, Price, Stock or Image is Invalid.";
             }
             else if (imageUpload.HasFile)
             {
                 string fileName = DateTime.Now.ToString("yyyyMMddHHmmss") + Path.GetExtension(imageUpload.FileName);
-                string filePath = Server.MapPath("~/Image/Artist/" + fileName);
+                string filePath = Server.MapPath("~/Image/Album/" + fileName);
 
                 imageUpload.SaveAs(filePath);
 
-                string imagePath = "/Image/Artist/" + fileName;
+                string imagePath = "/Image/Album/" + fileName;
 
-                Artist currentArtist = ar.getArtistByID(currentId);
-                currentArtist.artistName = name;
-                currentArtist.artistImage = imagePath;
+                Album currentAlbum = ar.getAlbumByID(currentId);
+                currentAlbum.albumName = newName;
+                currentAlbum.albumDesc = newDesc;
+                currentAlbum.albumPrice = newPrice;
+                currentAlbum.albumStock = newStock;
+                currentAlbum.albumImage = imagePath;
 
                 db.SaveChanges();
 
@@ -83,7 +96,7 @@ namespace PSDLab.View
             }
             else
             {
-                uploadStatus.Text = "Name and Image must be filled.";
+                uploadStatus.Text = "Name, Description, Price, Stock and Image must be filled.";
             }
         }
     }
