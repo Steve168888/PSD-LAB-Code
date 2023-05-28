@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <asp:Button ID="homeBtn" runat="server" Text="Home" OnClick="homeBtn_Click"/>
-        <asp:Button ID="Button2" runat="server" Text="Cart" />
+        <asp:Button ID="cartBtn" runat="server" Text="Cart" OnClick="cartBtn_Click"/>
         <asp:Button ID="Button3" runat="server" Text="Transaction" />
         <asp:Button ID="Button4" runat="server" Text="Update Profile" />
         <asp:Button ID="logOutBtn" runat="server" Text="Log Out" OnClick="logOutBtn_Click"/>

@@ -9,9 +9,10 @@ namespace PSDLab.View
 {
     public partial class Navigation_Customer : System.Web.UI.MasterPage
     {
+        public int customerID;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            customerID = Convert.ToInt32(Request.Cookies["UserInfo"].Value);
         }
 
         protected void logOutBtn_Click(object sender, EventArgs e)
@@ -27,6 +28,11 @@ namespace PSDLab.View
         protected void homeBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/View/HomePage.aspx");
+        }
+
+        protected void cartBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/CartPage.aspx");
         }
     }
 }

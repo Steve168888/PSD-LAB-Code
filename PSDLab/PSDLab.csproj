@@ -94,6 +94,7 @@
     </Content>
     <Content Include="View\AlbumDetail.aspx" />
     <Content Include="View\ArtistDetail.aspx" />
+    <Content Include="View\CartPage.aspx" />
     <Content Include="View\EditAlbum.aspx" />
     <Content Include="View\EditArtist.aspx" />
     <Content Include="View\HomePage.aspx" />
@@ -146,6 +147,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AlbumRepository.cs" />
     <Compile Include="Repository\ArtistRepository.cs" />
+    <Compile Include="Repository\CartRepository.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\HomeRepository.cs" />
     <Compile Include="Repository\SingletonDatabase.cs" />
@@ -162,6 +164,13 @@
     </Compile>
     <Compile Include="View\ArtistDetail.aspx.designer.cs">
       <DependentUpon>ArtistDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\CartPage.aspx.cs">
+      <DependentUpon>CartPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\CartPage.aspx.designer.cs">
+      <DependentUpon>CartPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\EditAlbum.aspx.cs">
       <DependentUpon>EditAlbum.aspx</DependentUpon>
