@@ -13,7 +13,7 @@
     <asp:TextBox ID="descBox" runat="server"></asp:TextBox><br /><br />
 
     <asp:Label ID="Label4" runat="server" Text="Price"></asp:Label><br />
-    <asp:TextBox ID="priceBox" runat="server"></asp:TextBox><br /><br />
+    <asp:TextBox ID="priceBox" runat="server" type="number"></asp:TextBox><br /><br />
 
     <asp:Label ID="Label5" runat="server" Text="Stock"></asp:Label><br />
     <asp:TextBox ID="stockBox" runat="server"></asp:TextBox><br /><br />

@@ -1,5 +1,6 @@
 ﻿using PSDLab.Controller;
 using PSDLab.Factory;
+using PSDLab.Handler;
 using PSDLab.Model;
 using PSDLab.Repository;
 using System;
@@ -53,7 +54,7 @@ namespace PSDLab.View
 
                 if (user == null)
                 {
-                    int nextId = (db.Customers.Max(c => c.customerId)) + 1;
+                    int nextId = IdGenerate.GenerateUserID();
                     Customer newCustomer = cf.CreateCustomer(nextId, name, email, gender, pass, address);
 
                     cr.registerCustomer(newCustomer);

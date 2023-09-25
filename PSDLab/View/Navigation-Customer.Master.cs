@@ -34,5 +34,15 @@ namespace PSDLab.View
         {
             Response.Redirect("~/View/CartPage.aspx");
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void transactionBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/TransactionPage.aspx");
+        }
     }
 }

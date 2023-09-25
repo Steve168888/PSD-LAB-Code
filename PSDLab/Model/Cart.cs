@@ -15,7 +15,7 @@ namespace PSDLab.Model
     public partial class Cart
     {
         public int customerId { get; set; }
-        public Nullable<int> albumId { get; set; }
+        public int albumId { get; set; }
         public Nullable<int> Qty { get; set; }
     
         public virtual Album Album { get; set; }

@@ -32,5 +32,37 @@ namespace PSDLab.Repository
             db.Albums.Add(albumDetail);
             db.SaveChanges();
         }
+        public void RemoveAlbum(int albumId)
+        {
+            // Retrieve the album from the database
+            Album albumToRemove = db.Albums.FirstOrDefault(x => x.albumId == albumId);
+
+            if (albumToRemove != null)
+            {
+                // Remove the album from the database context
+                db.Albums.Remove(albumToRemove);
+                db.SaveChanges();
+            }
+        }
+        public static class CartFactory
+        {
+            public static Cart Createcart(int customer_Id, int album_Id)
+            {
+                // Create a new Cart instance with the provided customerId and albumId
+                // Example:
+                return new Cart
+                {
+                    customerId = customer_Id,
+                    albumId = album_Id
+                };
+            }
+        }
+        public static void addNewCart(int customerId, int albumId)
+        {
+            Cart newCart = CartFactory.Createcart(customerId, albumId);
+            db.Carts.Add(newCart);
+            db.SaveChanges();
+        }
+
     }
 }

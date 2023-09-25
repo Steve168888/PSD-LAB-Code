@@ -17,6 +17,12 @@ namespace PSDLab.View
         public List<Cart> albumQty;
         HomeRepository hr = new HomeRepository();
         CartRepository cr = new CartRepository();
+
+        protected void Checkout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/TransactionPage.aspx");
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -40,13 +46,10 @@ namespace PSDLab.View
                 }
 
                 custNameLabel.Text = customerID.ToString();
+
+                listAlbum = cr.getAllCartContent(customerID);
+                albumQty = cr.getAlbumQty(customerID);
             }
-
-            listAlbum = cr.getAllCartContent(customerID);
-            albumQty = cr.getAlbumQty(customerID);
-
-            //CartView.DataSource = cr.getAllCartContent(customerID);
-            //CartView.DataBind();
         }
     }
 }

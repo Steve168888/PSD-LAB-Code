@@ -21,5 +21,6 @@ namespace PSDLab.Factory
                 albumImage = imagePath
             };
         }
+       
     }
 }

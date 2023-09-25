@@ -27,5 +27,14 @@ namespace PSDLab.Repository
             Artist artistFound = (from x in db.Artists where id == x.artistId select x).FirstOrDefault();
             return artistFound;
         }
+        public void removeArtist(int id)
+        {
+            Artist artistToRemove = db.Artists.FirstOrDefault(x => x.artistId == id);
+            if (artistToRemove != null)
+            {
+                db.Artists.Remove(artistToRemove);
+                db.SaveChanges();
+            }
+        }
     }
 }

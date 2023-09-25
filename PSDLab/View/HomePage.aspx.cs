@@ -1,4 +1,5 @@
-﻿using PSDLab.Model;
+﻿using PSDLab.Handler;
+using PSDLab.Model;
 using PSDLab.Repository;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace PSDLab.View
     public partial class HomePage : System.Web.UI.Page
     {
         public DatabaseEntities db = SingletonDatabase.GetInstance();
+        ArtistRepository artistRepo = new ArtistRepository();
         public int visitorRole;
         HomeRepository hr = new HomeRepository();
         protected void Page_Load(object sender, EventArgs e)
@@ -63,6 +65,11 @@ namespace PSDLab.View
         public int getVisitorRole()
         {
             return visitorRole;
+        }
+
+        protected void deleteBtn_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

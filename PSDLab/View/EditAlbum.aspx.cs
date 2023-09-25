@@ -58,6 +58,15 @@ namespace PSDLab.View
             }
         }
 
+        protected void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            int albumId = currentId;
+
+            AlbumRepository albumRepo = new AlbumRepository();
+            albumRepo.RemoveAlbum(albumId);
+            Response.Redirect("~/View/EditAlbum.aspx");
+        }
+
         protected void uploadBtn_Click(object sender, EventArgs e)
         {
             string newName = nameBox.Text;

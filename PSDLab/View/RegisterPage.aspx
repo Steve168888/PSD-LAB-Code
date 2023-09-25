@@ -27,7 +27,7 @@
             <asp:TextBox ID="addressBox" runat="server"></asp:TextBox><br /><br />
 
             <asp:Label ID="Label3" runat="server" Text="Password :"></asp:Label><br />
-            <asp:TextBox ID="passBox" runat="server"></asp:TextBox><br /><br />
+            <asp:TextBox ID="passBox" TextMode="Password" runat="server"></asp:TextBox><br /><br />
 
             <asp:Button ID="registerBtn" runat="server" Text="Login" OnClick="registerBtn_Click"/><br /><br />
             <asp:Label ID="errorLabel" runat="server" Text=""></asp:Label><br />

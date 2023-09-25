@@ -1,5 +1,6 @@
 ﻿using PSDLab.Controller;
 using PSDLab.Factory;
+using PSDLab.Handler;
 using PSDLab.Model;
 using PSDLab.Repository;
 using System;
@@ -56,7 +57,7 @@ namespace PSDLab.View
 
                 string imagePath = "/Image/Artist/" + fileName;
 
-                int nextId = (db.Artists.Max(c => c.artistId)) + 1;
+                int nextId = IdGenerate.GenerateArtistID();
                 Artist newArtist = af.CreateArtist(nextId, name, imagePath);
 
                 ar.registerArtist(newArtist);

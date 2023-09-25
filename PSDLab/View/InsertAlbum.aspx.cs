@@ -1,5 +1,6 @@
 ﻿using PSDLab.Controller;
 using PSDLab.Factory;
+using PSDLab.Handler;
 using PSDLab.Model;
 using PSDLab.Repository;
 using System;
@@ -55,7 +56,8 @@ namespace PSDLab.View
             string desc = descBox.Text;
             int price = Convert.ToInt32(priceBox.Text);
             int stock = Convert.ToInt32(stockBox.Text);
-            int artistId = ar.getArtistIDbyName(artistName);
+            string aName = Request.QueryString["artistName"];
+            int artistId = ar.getArtistIDbyName(aName);
 
             if (name.Length <= 0 || name.Length >= 50)
             {
@@ -83,7 +85,7 @@ namespace PSDLab.View
 
                 string imagePath = "/Image/Album/" + fileName;
 
-                int nextId = (db.Artists.Max(c => c.artistId)) + 1;
+                int nextId = IdGenerate.GenerateAlbumID();
                 Album newAlbum = af.CreateAlbum(nextId, name, desc, price, stock, artistId, imagePath);
 
                 ar.registerAlbum(newAlbum);

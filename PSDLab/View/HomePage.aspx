@@ -10,7 +10,7 @@
             <% if (visitorRole == 2) { %>
                 <th display="none">Action</th>
             <% } %>
-            
+             
         </tr>
 
         <%foreach (var x in db.Artists) { %>
@@ -20,6 +20,7 @@
 
             <% if (visitorRole == 2) { %>
                 <th><a href='<%= ResolveUrl("~/View/EditArtist.aspx?artistName=") + HttpUtility.UrlEncode(x.artistName) %>'>Edit</a></th>
+                <th><a href='<%= ResolveUrl("~/View/DeleteArtist.aspx?artistId=") + x.artistId.ToString() %>'>Delete</a></th>
             <% } %>
         </tr>
         <%    } %>

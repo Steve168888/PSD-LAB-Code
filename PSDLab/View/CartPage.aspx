@@ -15,25 +15,27 @@
         </Columns>
     </asp:GridView>--%>
 
-    <table border="1">
+
+
+     <table border="1">
         <tr align="left">
             <th>Album Name</th>
             <th>Album Image</th>
             <th>Album Price</th>
             <th>Quantity</th>
-            
+            <th>Delete</th>
         </tr>
 
-        <%foreach (var (a, c) in listAlbum.Zip(albumQty, (a, b) => (a, b))) { %>
-
-        <tr align="left">
-            <th><%= a.albumName %></th>
-            <th><img src='<%= a.albumImage%>' alt="Album Image" width="100" height="100"/></th>
-            <th><%= a.albumPrice %></th>
-            <th><%= c.Qty %></th>
-        </tr>
-        <%    } %>
-       
+        <% foreach (var (album, quantity) in listAlbum.Zip(albumQty, (a, b) => (a, b))) { %>
+            <tr align="left">
+                <td><%= album.albumName %></td>
+                <td><img src='<%= album.albumImage %>' alt="Album Image" width="100" height="100" /></td>
+                <td><%= album.albumPrice %></td>
+                <td><%= quantity.Qty %></td>
+                <td><a href='<%= ResolveUrl("~/View/DeleteCart.aspx?albumId=") + album.albumId.ToString() %>'>Delete</a></td>
+            </tr>
+        <% } %>
     </table>
+    <asp:Button ID="Checkout" runat="server" Text="CheckOut" OnClick="Checkout_Click"/>
 
 </asp:Content>

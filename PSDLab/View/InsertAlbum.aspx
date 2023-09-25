@@ -9,7 +9,7 @@
     <asp:Label ID="Label4" runat="server" Text="Desc"></asp:Label><br />
     <asp:TextBox ID="descBox" runat="server"></asp:TextBox><br /><br />
     <asp:Label ID="Label5" runat="server" Text="Price"></asp:Label><br />
-    <asp:TextBox ID="priceBox" runat="server"></asp:TextBox><br /><br />
+    <asp:TextBox ID="priceBox" runat="server" type="number"></asp:TextBox><br /><br />
     <asp:Label ID="Label6" runat="server" Text="Stock"></asp:Label><br />
     <asp:TextBox ID="stockBox" runat="server"></asp:TextBox><br /><br />
     <asp:Label ID="Label2" runat="server" Text="Image"></asp:Label><br />

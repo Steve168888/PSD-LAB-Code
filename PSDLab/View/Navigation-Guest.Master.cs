@@ -23,5 +23,16 @@ namespace PSDLab.View
         {
             Response.Redirect("~/View/LoginPage.aspx");
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        protected void RegisterBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/RegisterPage.aspx");
+        }
     }
 }

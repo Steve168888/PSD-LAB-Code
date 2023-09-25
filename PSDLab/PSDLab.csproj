@@ -85,8 +85,8 @@
     <Content Include="Image\Artist\638059450808002463.jfif" />
     <Content Include="Model\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
       <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -95,7 +95,11 @@
     </Content>
     <Content Include="View\AlbumDetail.aspx" />
     <Content Include="View\ArtistDetail.aspx" />
+    <Content Include="View\CartAlbum.aspx" />
     <Content Include="View\CartPage.aspx" />
+    <Content Include="View\DeleteAlbum.aspx" />
+    <Content Include="View\DeleteArtist.aspx" />
+    <Content Include="View\DeleteCart.aspx" />
     <Content Include="View\EditAlbum.aspx" />
     <Content Include="View\EditArtist.aspx" />
     <Content Include="View\HomePage.aspx" />
@@ -103,15 +107,24 @@
     <Content Include="View\InsertArtist.aspx" />
     <Content Include="View\LoginPage.aspx" />
     <Content Include="View\RegisterPage.aspx" />
+    <Content Include="View\TransactionPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AlbumValidation.cs" />
     <Compile Include="Controller\ArtistValidation.cs" />
     <Compile Include="Controller\CustomerValidation.cs" />
+    <Compile Include="Controller\TransactionDetailController.cs" />
+    <Compile Include="Controller\TransactionHeaderController.cs" />
     <Compile Include="Factory\AlbumFactory.cs" />
     <Compile Include="Factory\ArtistFactory.cs" />
+    <Compile Include="Factory\CartFactory.cs" />
     <Compile Include="Factory\CustomerFactory.cs" />
+    <Compile Include="Factory\TransactionDetailFactory.cs" />
+    <Compile Include="Factory\TransactionHeaderFactory.cs" />
+    <Compile Include="Handler\IdGenerate.cs" />
+    <Compile Include="Handler\TransactionDetailHandler.cs" />
+    <Compile Include="Handler\TransactionHeaderHandler.cs" />
     <Compile Include="Model\Album.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -121,6 +134,7 @@
     <Compile Include="Model\Cart.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CartItemWithQuantity.cs" />
     <Compile Include="Model\Customer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -152,6 +166,8 @@
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\HomeRepository.cs" />
     <Compile Include="Repository\SingletonDatabase.cs" />
+    <Compile Include="Repository\TransactionDetailRepository.cs" />
+    <Compile Include="Repository\TransactionHeaderRepository.cs" />
     <Compile Include="View\AlbumDetail.aspx.cs">
       <DependentUpon>AlbumDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -166,12 +182,39 @@
     <Compile Include="View\ArtistDetail.aspx.designer.cs">
       <DependentUpon>ArtistDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\CartAlbum.aspx.cs">
+      <DependentUpon>CartAlbum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\CartAlbum.aspx.designer.cs">
+      <DependentUpon>CartAlbum.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\CartPage.aspx.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\CartPage.aspx.designer.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeleteAlbum.aspx.cs">
+      <DependentUpon>DeleteAlbum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\DeleteAlbum.aspx.designer.cs">
+      <DependentUpon>DeleteAlbum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeleteArtist.aspx.cs">
+      <DependentUpon>DeleteArtist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\DeleteArtist.aspx.designer.cs">
+      <DependentUpon>DeleteArtist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeleteCart.aspx.cs">
+      <DependentUpon>DeleteCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\DeleteCart.aspx.designer.cs">
+      <DependentUpon>DeleteCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\EditAlbum.aspx.cs">
       <DependentUpon>EditAlbum.aspx</DependentUpon>
@@ -243,6 +286,13 @@
     <Compile Include="View\RegisterPage.aspx.designer.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\TransactionPage.aspx.cs">
+      <DependentUpon>TransactionPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\TransactionPage.aspx.designer.cs">
+      <DependentUpon>TransactionPage.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Model\Model.edmx">
@@ -263,9 +313,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Handler\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

@@ -56,6 +56,16 @@ namespace PSDLab.View
             
         }
 
+
+        protected void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            int artistId = currentId; 
+
+            ArtistRepository ar = new ArtistRepository();
+            ar.removeArtist(artistId);
+            Response.Redirect("~/View/EditArtist.aspx");
+        }
+
         protected void uploadBtn_Click(object sender, EventArgs e)
         {
             string name = nameBox.Text;
